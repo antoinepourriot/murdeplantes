@@ -1,6 +1,14 @@
 'use strict';
 
 angular.module('murdeplantes')
+  .service('murdeplantesService', function(jsonrpc) {
+      var service = jsonrpc.newService('murdeplantessvc');
+      this.get = service.createMethod('Get');
+      this.save = service.createMethod('Save');
+    })
+  .config(function(jsonrpcProvider) {
+    jsonrpcProvider.setBasePath('https://ferry.hd.free.fr/jeedom/core/api/jeeApi.php');
+  })
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
       {
@@ -56,4 +64,17 @@ angular.module('murdeplantes')
     angular.forEach($scope.awesomeThings, function(awesomeThing) {
       awesomeThing.rank = Math.random();
     });
+
+// https://github.com/ajsd/angular-jsonrpc
+
+      $scope.coords = [];
+      murdeplantesService.get({max: 10}).success(function(data) {
+        $scope.coords = data.coords;
+      });
+      murdeplantesService.save({lat: 22, long: 33}, {headers: {'X-ACL': 'x@y.z'}}).
+          success(function(data) {}).
+          error(function(error) {});
+
+      console.log('toto');
+
   });

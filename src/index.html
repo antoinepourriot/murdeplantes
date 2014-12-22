@@ -6,13 +6,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    
+
     <!-- build:css({.tmp,src}) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
     <!-- endbower -->
     <!-- endbuild -->
-    
+
 
     <!-- build:css({.tmp,src}) styles/app.css -->
     <!-- inject:css -->
@@ -30,9 +30,9 @@
     <![endif]-->
 
     <div layout="vertical" layout-fill>
-    
+
       <header ng-include="'components/navbar/navbar.html'"></header>
-    
+
       <md-content>
         <section class="jumbotron">
           <h1>'Allo, 'Allo!</h1>
@@ -42,7 +42,7 @@
           </p>
           <p><a class="btn" ng-href="#">Splendid!</a></p>
         </section>
-    
+
         <div class="techs" layout-align="center">
           <md-card ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
             <div class="thumbnail">
@@ -56,15 +56,15 @@
           </md-card>
         </div>
       </md-content>
-    
+
       <footer>
         <md-toolbar layout="row" layout-align="center center">
           <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
         </md-toolbar>
       </footer>
-    
+
     </div>
-    
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -86,6 +86,8 @@
     <script src="../bower_components/angular-aria/angular-aria.js"></script>
     <script src="../bower_components/hammerjs/hammer.js"></script>
     <script src="../bower_components/angular-material/angular-material.js"></script>
+    <script src="../bower_components/angular-uuid/uuid.min.js"></script>
+    <script src="../bower_components/angular-jsonrpc/jsonrpc.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
